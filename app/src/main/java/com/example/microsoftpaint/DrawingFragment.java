@@ -1,6 +1,8 @@
 package com.example.microsoftpaint;
 
+import android.app.Activity;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
@@ -10,27 +12,34 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.SeekBar;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+
+import com.skydoves.colorpickerview.ColorEnvelope;
+import com.skydoves.colorpickerview.ColorPickerDialog;
+import com.skydoves.colorpickerview.listeners.ColorEnvelopeListener;
 
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class DrawingFragment extends Fragment {
+public class DrawingFragment extends Fragment implements View.OnClickListener {
 
     private DrawingView drawingView;
-    private ImageButton pencilButton, brushButton, forkButton;
-    private Button colorRedButton, colorBlueButton, colorGreenButton, colorBlackButton;
-    private SeekBar strokeWidthSeekBar;
-    private Button clearButton, saveButton;
+    private ImageButton brushButton, pencilButton, forkButton, rectangleButton, saveButton,colorPickerButton;
+    private Button colorButton;
+    private Spinner languageSpinner;
+    private boolean isStrokeColorPickerMode = true; // Par défaut, on change la couleur du trait
 
     @Nullable
     @Override
@@ -39,73 +48,133 @@ public class DrawingFragment extends Fragment {
 
         // Initialiser les vues
         drawingView = view.findViewById(R.id.drawing_view);
-        pencilButton = view.findViewById(R.id.pencil_button);
         brushButton = view.findViewById(R.id.brush_button);
+        pencilButton = view.findViewById(R.id.pencil_button);
         forkButton = view.findViewById(R.id.fork_button);
-        colorRedButton = view.findViewById(R.id.color_red);
-        colorBlueButton = view.findViewById(R.id.color_blue);
-        colorGreenButton = view.findViewById(R.id.color_green);
-        colorBlackButton = view.findViewById(R.id.color_black);
-        strokeWidthSeekBar = view.findViewById(R.id.stroke_width_seekbar);
-        clearButton = view.findViewById(R.id.clear_button);
+        rectangleButton = view.findViewById(R.id.rectangle_button);
+        colorButton = view.findViewById(R.id.color_red);
+        colorPickerButton = view.findViewById(R.id.color_picker);
         saveButton = view.findViewById(R.id.save_button);
+        languageSpinner = view.findViewById(R.id.language_spinner);
 
-        // Configuration des outils de dessin
-        pencilButton.setOnClickListener(v -> {
-            drawingView.setTool("PENCIL");
-            highlightSelectedTool(pencilButton);
-        });
+        // Configurer les écouteurs d'événements
+        brushButton.setOnClickListener(this);
+        pencilButton.setOnClickListener(this);
+        forkButton.setOnClickListener(this);
+        rectangleButton.setOnClickListener(this);
+        colorButton.setOnClickListener(this);
+        colorPickerButton.setOnClickListener(this);
+        saveButton.setOnClickListener(this);
 
-        brushButton.setOnClickListener(v -> {
-            drawingView.setTool("BRUSH");
-            highlightSelectedTool(brushButton);
-        });
+        // Configuration du spinner de langues
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                getContext(),
+                R.array.languages,
+                android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        languageSpinner.setAdapter(adapter);
 
-        forkButton.setOnClickListener(v -> {
-            drawingView.setTool("FORK");
-            highlightSelectedTool(forkButton);
-        });
-
-        // Configuration des boutons de couleur
-        colorRedButton.setOnClickListener(v -> drawingView.setColor(Color.RED));
-        colorBlueButton.setOnClickListener(v -> drawingView.setColor(Color.BLUE));
-        colorGreenButton.setOnClickListener(v -> drawingView.setColor(Color.GREEN));
-        colorBlackButton.setOnClickListener(v -> drawingView.setColor(Color.BLACK));
-
-        // Configuration du contrôle de largeur du trait
-        strokeWidthSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        // Définir la langue par défaut
+        languageSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                drawingView.setStrokeWidth(progress + 5); // Minimum width of 5
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedLanguage = parent.getItemAtPosition(position).toString();
+                // Ici vous pourriez changer la langue de l'application
+                Toast.makeText(getContext(), "Langue sélectionnée: " + selectedLanguage, Toast.LENGTH_SHORT).show();
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {}
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {}
+            public void onNothingSelected(AdapterView<?> parent) {}
         });
 
-        // Configuration du bouton d'effacement
-        clearButton.setOnClickListener(v -> drawingView.clearCanvas());
+        // État initial - sélectionner l'outil pinceau par défaut
+        brushButton.setSelected(true);
+        drawingView.setTool("BRUSH");
 
-        // Configuration du bouton de sauvegarde
-        saveButton.setOnClickListener(v -> saveDrawing());
-
-        // État initial - sélectionner l'outil crayon par défaut
-        highlightSelectedTool(pencilButton);
+        // Définir la couleur initiale du bouton de couleur
+        colorButton.setBackgroundColor(drawingView.getStrokeColor());
 
         return view;
     }
 
-    private void highlightSelectedTool(ImageButton selectedButton) {
-        // Réinitialiser l'état de tous les boutons d'outils
-        pencilButton.setSelected(false);
-        brushButton.setSelected(false);
-        forkButton.setSelected(false);
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
 
-        // Définir l'état sélectionné pour le bouton actuel
+        if (id == R.id.brush_button) {
+            setSelectedTool(brushButton);
+            drawingView.setTool("BRUSH");
+        } else if (id == R.id.pencil_button) {
+            setSelectedTool(pencilButton);
+            drawingView.setTool("PENCIL");
+        } else if (id == R.id.fork_button) {
+            setSelectedTool(forkButton);
+            drawingView.setTool("FORK");
+        } else if (id == R.id.rectangle_button) {
+            setSelectedTool(rectangleButton);
+            drawingView.setTool("RECTANGLE");
+        } else if (id == R.id.color_red) {
+            showColorSelectionDialog();
+        } else if (id == R.id.color_picker) {
+            showBackgroundOrStrokeDialog();
+        } else if (id == R.id.save_button) {
+            saveDrawing();
+        }
+    }
+
+    private void setSelectedTool(ImageButton selectedButton) {
+        brushButton.setSelected(false);
+        pencilButton.setSelected(false);
+        forkButton.setSelected(false);
+        rectangleButton.setSelected(false);
+
         selectedButton.setSelected(true);
+    }
+
+    private void showBackgroundOrStrokeDialog() {
+        final String[] choices = {"Couleur du trait", "Couleur de fond"};
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle("Choisir la couleur à modifier")
+                .setItems(choices, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        isStrokeColorPickerMode = (which == 0);
+                        showColorSelectionDialog();
+                    }
+                });
+        builder.create().show();
+    }
+
+    private void showColorSelectionDialog() {
+        Activity activity = getActivity();
+        if (activity == null) return;
+
+        new ColorPickerDialog.Builder(activity)
+                .setTitle("Choisir une couleur")
+                .setPreferenceName("MyColorPickerDialog")
+                .setPositiveButton("Valider", new ColorEnvelopeListener() {
+                    @Override
+                    public void onColorSelected(ColorEnvelope envelope, boolean fromUser) {
+                        int selectedColor = envelope.getColor();
+                        if (isStrokeColorPickerMode) {
+                            drawingView.setStrokeColor(selectedColor);
+                            colorButton.setBackgroundColor(selectedColor);
+                        } else {
+                            drawingView.setBackgroundColor(selectedColor);
+                        }
+                    }
+                })
+                .setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .attachAlphaSlideBar(true)
+                .attachBrightnessSlideBar(true)
+                .setBottomSpace(12)
+                .show();
     }
 
     private void saveDrawing() {
@@ -118,7 +187,7 @@ public class DrawingFragment extends Fragment {
             Bitmap bitmap = drawingView.getBitmap();
 
             String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
-            String imageFileName = "PAINT_" + timeStamp + ".jpg";
+            String imageFileName = "LETSPAINT_" + timeStamp + ".jpg";
 
             ContentValues contentValues = new ContentValues();
             contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, imageFileName);

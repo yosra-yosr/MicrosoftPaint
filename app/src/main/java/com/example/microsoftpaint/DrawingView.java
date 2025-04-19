@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -16,13 +17,35 @@ public class DrawingView extends View {
 
     private Path mPath;
     private Paint mPaint;
-    private ArrayList<Path> paths = new ArrayList<>();
-    private ArrayList<Paint> paints = new ArrayList<>();
+    private Paint mCanvasPaint;
+    private ArrayList<DrawPath> paths = new ArrayList<>();
     private Bitmap mBitmap;
     private Canvas mCanvas;
-    private int currentColor = Color.BLACK;
-    private int currentWidth = 10;
-    private String currentTool = "PENCIL"; // PENCIL, BRUSH, FORK
+    private float mStartX, mStartY;
+    private RectF mRect = new RectF();
+
+    private int backgroundColor = Color.WHITE;
+    private int strokeColor = Color.RED;
+    private int strokeWidth = 10;
+    private String currentTool = "BRUSH"; // BRUSH, PENCIL, FORK, RECTANGLE
+
+    // Classe interne pour stocker les chemins de dessin avec leurs propriétés
+    private static class DrawPath {
+        public Path path;
+        public Paint paint;
+        public String tool;
+        public float startX, startY, endX, endY;
+
+        public DrawPath(Path path, Paint paint, String tool, float startX, float startY, float endX, float endY) {
+            this.path = path;
+            this.paint = paint;
+            this.tool = tool;
+            this.startX = startX;
+            this.startY = startY;
+            this.endX = endX;
+            this.endY = endY;
+        }
+    }
 
     public DrawingView(Context context) {
         this(context, null);
@@ -36,12 +59,14 @@ public class DrawingView extends View {
     private void setupDrawing() {
         mPath = new Path();
         mPaint = new Paint();
-        mPaint.setColor(currentColor);
+        mPaint.setColor(strokeColor);
         mPaint.setAntiAlias(true);
-        mPaint.setStrokeWidth(currentWidth);
+        mPaint.setStrokeWidth(strokeWidth);
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setStrokeJoin(Paint.Join.ROUND);
         mPaint.setStrokeCap(Paint.Cap.ROUND);
+
+        mCanvasPaint = new Paint(Paint.DITHER_FLAG);
     }
 
     @Override
@@ -49,17 +74,30 @@ public class DrawingView extends View {
         super.onSizeChanged(w, h, oldw, oldh);
         mBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
         mCanvas = new Canvas(mBitmap);
+        mCanvas.drawColor(backgroundColor);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
-        canvas.drawBitmap(mBitmap, 0, 0, null);
+        canvas.drawBitmap(mBitmap, 0, 0, mCanvasPaint);
 
-        for (int i = 0; i < paths.size(); i++) {
-            canvas.drawPath(paths.get(i), paints.get(i));
+        // Dessiner tous les chemins déjà enregistrés
+        for (DrawPath dp : paths) {
+            if (dp.tool.equals("RECTANGLE")) {
+                mRect.set(dp.startX, dp.startY, dp.endX, dp.endY);
+                canvas.drawRect(mRect, dp.paint);
+            } else {
+                canvas.drawPath(dp.path, dp.paint);
+            }
         }
 
-        canvas.drawPath(mPath, mPaint);
+        // Dessiner le chemin actuel
+        if (currentTool.equals("RECTANGLE")) {
+            mRect.set(mStartX, mStartY, mStartX, mStartY);
+            canvas.drawRect(mRect, mPaint);
+        } else {
+            canvas.drawPath(mPath, mPaint);
+        }
     }
 
     private float mX, mY;
@@ -70,6 +108,8 @@ public class DrawingView extends View {
         mPath.moveTo(x, y);
         mX = x;
         mY = y;
+        mStartX = x;
+        mStartY = y;
     }
 
     private void touchMove(float x, float y) {
@@ -95,6 +135,9 @@ public class DrawingView extends View {
                     mPath.moveTo((x + mX) / 2, (y + mY) / 2);
                     mPath.lineTo((x + mX) / 2 + dY/4, (y + mY) / 2 - dX/4);
                     break;
+                case "RECTANGLE":
+                    // Mise à jour pour le rectangle - ne fait rien ici, géré dans onDraw
+                    break;
             }
 
             mX = x;
@@ -102,19 +145,29 @@ public class DrawingView extends View {
         }
     }
 
-    private void touchUp() {
-        mPath.lineTo(mX, mY);
+    private void touchUp(float x, float y) {
+        if (currentTool.equals("RECTANGLE")) {
+            Paint newPaint = new Paint(mPaint);
+            DrawPath dp = new DrawPath(new Path(), newPaint, currentTool, mStartX, mStartY, x, y);
+            paths.add(dp);
 
-        // Dessiner le chemin sur le canevas
-        mCanvas.drawPath(mPath, mPaint);
+            // Dessiner définitivement le rectangle sur le canvas
+            mRect.set(mStartX, mStartY, x, y);
+            mCanvas.drawRect(mRect, mPaint);
+        } else {
+            mPath.lineTo(mX, mY);
 
-        // Stocker le chemin et la peinture
-        paths.add(mPath);
-        Paint newPaint = new Paint(mPaint);
-        paints.add(newPaint);
+            // Dessiner le chemin sur le canevas
+            mCanvas.drawPath(mPath, mPaint);
 
-        // Réinitialiser le chemin
-        mPath = new Path();
+            // Stocker le chemin et la peinture
+            Paint newPaint = new Paint(mPaint);
+            DrawPath dp = new DrawPath(new Path(mPath), newPaint, currentTool, mStartX, mStartY, x, y);
+            paths.add(dp);
+
+            // Réinitialiser le chemin
+            mPath = new Path();
+        }
     }
 
     @Override
@@ -132,7 +185,7 @@ public class DrawingView extends View {
                 invalidate();
                 break;
             case MotionEvent.ACTION_UP:
-                touchUp();
+                touchUp(x, y);
                 invalidate();
                 break;
         }
@@ -141,19 +194,36 @@ public class DrawingView extends View {
 
     public void clearCanvas() {
         paths.clear();
-        paints.clear();
         mPath.reset();
-        mCanvas.drawColor(Color.WHITE);
+        mCanvas.drawColor(backgroundColor);
         invalidate();
     }
 
-    public void setColor(int color) {
-        currentColor = color;
+    public void setStrokeColor(int color) {
+        strokeColor = color;
         mPaint.setColor(color);
     }
 
+    public void setBackgroundColor(int color) {
+        backgroundColor = color;
+        // Redessiner le fond
+        mCanvas.drawColor(backgroundColor);
+
+        // Redessiner tous les chemins
+        for (DrawPath dp : paths) {
+            if (dp.tool.equals("RECTANGLE")) {
+                mRect.set(dp.startX, dp.startY, dp.endX, dp.endY);
+                mCanvas.drawRect(mRect, dp.paint);
+            } else {
+                mCanvas.drawPath(dp.path, dp.paint);
+            }
+        }
+
+        invalidate();
+    }
+
     public void setStrokeWidth(int width) {
-        currentWidth = width;
+        strokeWidth = width;
         mPaint.setStrokeWidth(width);
     }
 
@@ -163,5 +233,13 @@ public class DrawingView extends View {
 
     public Bitmap getBitmap() {
         return mBitmap;
+    }
+
+    public int getStrokeColor() {
+        return strokeColor;
+    }
+
+    public int getBackgroundColor() {
+        return backgroundColor;
     }
 }

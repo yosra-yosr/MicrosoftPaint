@@ -38,6 +38,7 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation ("com.airbnb.android:lottie:6.1.0")
+    implementation ("com.github.skydoves:colorpickerview:2.2.4")
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
