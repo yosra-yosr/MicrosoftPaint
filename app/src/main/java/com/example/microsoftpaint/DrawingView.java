@@ -29,6 +29,11 @@ public class DrawingView extends View {
     private int strokeWidth = 10;
     private String currentTool = "BRUSH"; // BRUSH, PENCIL, FORK, RECTANGLE
     private int previousStrokeColor;
+
+    public int getStrokeWidth() {
+        return strokeWidth;
+    }
+
     // Classe interne pour stocker les chemins de dessin avec leurs propriétés
     private static class DrawPath {
         public Path path;

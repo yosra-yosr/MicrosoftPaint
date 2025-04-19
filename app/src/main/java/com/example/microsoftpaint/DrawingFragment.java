@@ -40,6 +40,7 @@ public class DrawingFragment extends Fragment implements View.OnClickListener {
     private Button colorButton;
     private Spinner languageSpinner;
     private boolean isStrokeColorPickerMode = true; // Par défaut, on change la couleur du trait
+    private String currentTool = "BRUSH";
 
     @Nullable
     @Override
@@ -96,6 +97,7 @@ public class DrawingFragment extends Fragment implements View.OnClickListener {
         // État initial - sélectionner l'outil pinceau par défaut
         brushButton.setSelected(true);
         drawingView.setTool("BRUSH");
+        currentTool = "BRUSH";
 
         // Définir la couleur initiale du bouton de couleur
         colorButton.setBackgroundColor(drawingView.getStrokeColor());
@@ -109,26 +111,35 @@ public class DrawingFragment extends Fragment implements View.OnClickListener {
 
         if (id == R.id.brush_button) {
             setSelectedTool(brushButton);
+            currentTool = "BRUSH";
             drawingView.setTool("BRUSH");
+            showColorSizePicker();
         } else if (id == R.id.pencil_button) {
             setSelectedTool(pencilButton);
-            drawingView.setTool("PENCIL");
+            currentTool = "PENCIL";
+            drawingView.setTool(currentTool);
+            showColorSizePicker();
         } else if (id == R.id.fork_button) {
             setSelectedTool(forkButton);
-            drawingView.setTool("FORK");
+            currentTool = "FORK";
+            drawingView.setTool(currentTool);
+            showColorSizePicker();
         } else if (id == R.id.rectangle_button) {
             setSelectedTool(rectangleButton);
-            drawingView.setTool("RECTANGLE");
+            currentTool = "RECTANGLE";
+            drawingView.setTool(currentTool);
+            showColorSizePicker();
         } else if (id == R.id.color_red) {
             showColorSelectionDialog();
         } else if (id == R.id.color_picker) {
             showBackgroundOrStrokeDialog();
         } else if (id == R.id.save_button) {
             saveDrawing();
-        }else if (id == R.id.eraser_button) {
-                setSelectedTool(eraserButton);
-                drawingView.setTool("ERASER");
-        } else if (id==R.id.discard_button) {
+        } else if (id == R.id.eraser_button) {
+            setSelectedTool(eraserButton);
+            currentTool = "ERASER";
+            drawingView.setTool(currentTool);
+        } else if (id == R.id.discard_button) {
             new AlertDialog.Builder(getContext())
                     .setTitle("Effacer le dessin")
                     .setMessage("Voulez-vous vraiment effacer tout le dessin?")
@@ -141,6 +152,28 @@ public class DrawingFragment extends Fragment implements View.OnClickListener {
                     .setNegativeButton("Non", null)
                     .show();
         }
+    }
+
+    private void showColorSizePicker() {
+        // Ne pas afficher le sélecteur pour la gomme
+        if (currentTool.equals("ERASER")) {
+            return;
+        }
+
+        ColorSizePickerDialog dialog = new ColorSizePickerDialog(
+                getContext(),
+                new ColorSizePickerDialog.OnColorSizeSelectedListener() {
+                    @Override
+                    public void onColorSizeSelected(int color, int size) {
+                        drawingView.setStrokeColor(color);
+                        drawingView.setStrokeWidth(size);
+                        colorButton.setBackgroundColor(color);
+                    }
+                },
+                drawingView.getStrokeColor(),
+                drawingView.getStrokeWidth()
+        );
+        dialog.show();
     }
 
     private void setSelectedTool(ImageButton selectedButton) {
