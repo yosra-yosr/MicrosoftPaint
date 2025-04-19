@@ -36,7 +36,7 @@ import java.util.Locale;
 public class DrawingFragment extends Fragment implements View.OnClickListener {
 
     private DrawingView drawingView;
-    private ImageButton brushButton, pencilButton, forkButton, rectangleButton, saveButton,colorPickerButton;
+    private ImageButton brushButton, pencilButton, forkButton, rectangleButton, saveButton,colorPickerButton,eraserButton,discardButton;
     private Button colorButton;
     private Spinner languageSpinner;
     private boolean isStrokeColorPickerMode = true; // Par défaut, on change la couleur du trait
@@ -56,6 +56,9 @@ public class DrawingFragment extends Fragment implements View.OnClickListener {
         colorPickerButton = view.findViewById(R.id.color_picker);
         saveButton = view.findViewById(R.id.save_button);
         languageSpinner = view.findViewById(R.id.language_spinner);
+        eraserButton = view.findViewById(R.id.eraser_button);
+        discardButton = view.findViewById(R.id.discard_button);
+
 
         // Configurer les écouteurs d'événements
         brushButton.setOnClickListener(this);
@@ -65,6 +68,9 @@ public class DrawingFragment extends Fragment implements View.OnClickListener {
         colorButton.setOnClickListener(this);
         colorPickerButton.setOnClickListener(this);
         saveButton.setOnClickListener(this);
+        eraserButton.setOnClickListener(this);
+        discardButton.setOnClickListener(this);
+
 
         // Configuration du spinner de langues
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
@@ -119,6 +125,21 @@ public class DrawingFragment extends Fragment implements View.OnClickListener {
             showBackgroundOrStrokeDialog();
         } else if (id == R.id.save_button) {
             saveDrawing();
+        }else if (id == R.id.eraser_button) {
+                setSelectedTool(eraserButton);
+                drawingView.setTool("ERASER");
+        } else if (id==R.id.discard_button) {
+            new AlertDialog.Builder(getContext())
+                    .setTitle("Effacer le dessin")
+                    .setMessage("Voulez-vous vraiment effacer tout le dessin?")
+                    .setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            drawingView.clearCanvas();
+                        }
+                    })
+                    .setNegativeButton("Non", null)
+                    .show();
         }
     }
 
@@ -127,7 +148,7 @@ public class DrawingFragment extends Fragment implements View.OnClickListener {
         pencilButton.setSelected(false);
         forkButton.setSelected(false);
         rectangleButton.setSelected(false);
-
+        eraserButton.setSelected(false);
         selectedButton.setSelected(true);
     }
 

@@ -63,6 +63,22 @@
             android:background="@drawable/tool_selector"
             android:contentDescription="Rectangle"
             android:layout_margin="8dp" />
+        <ImageButton
+            android:id="@+id/eraser_button"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/eraser"
+            android:background="@drawable/tool_selector"
+            android:contentDescription="Gomme"
+            android:layout_margin="8dp" />
+        <ImageButton
+            android:id="@+id/discard_button"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@android:drawable/ic_menu_delete"
+            android:background="@drawable/tool_selector"
+            android:contentDescription="Gomme"
+            android:layout_margin="8dp" />
 
     </LinearLayout>
 

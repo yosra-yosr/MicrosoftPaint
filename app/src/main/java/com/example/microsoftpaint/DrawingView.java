@@ -28,7 +28,7 @@ public class DrawingView extends View {
     private int strokeColor = Color.RED;
     private int strokeWidth = 10;
     private String currentTool = "BRUSH"; // BRUSH, PENCIL, FORK, RECTANGLE
-
+    private int previousStrokeColor;
     // Classe interne pour stocker les chemins de dessin avec leurs propriétés
     private static class DrawPath {
         public Path path;
@@ -67,6 +67,8 @@ public class DrawingView extends View {
         mPaint.setStrokeCap(Paint.Cap.ROUND);
 
         mCanvasPaint = new Paint(Paint.DITHER_FLAG);
+        previousStrokeColor = strokeColor;
+
     }
 
     @Override
@@ -137,6 +139,14 @@ public class DrawingView extends View {
                     break;
                 case "RECTANGLE":
                     // Mise à jour pour le rectangle - ne fait rien ici, géré dans onDraw
+                    break;
+                case "ERASER":
+                    // La gomme est similaire au pinceau mais avec la couleur du fond
+                    mPath.lineTo(x, y);
+                    break;
+                case "Discard":
+                    // La gomme est similaire au pinceau mais avec la couleur du fond
+                    mPath.lineTo(x, y);
                     break;
             }
 
@@ -229,6 +239,16 @@ public class DrawingView extends View {
 
     public void setTool(String tool) {
         currentTool = tool;
+        if (tool.equals("ERASER")) {
+            previousStrokeColor = mPaint.getColor();
+            mPaint.setColor(backgroundColor);
+            mPaint.setStrokeWidth(strokeWidth * 2); // Option: rendre la gomme plus large
+        }
+        // Si nous quittons l'outil gomme, restaurons la couleur précédente
+        else if (mPaint.getColor() == backgroundColor && !tool.equals("ERASER")) {
+            mPaint.setColor(previousStrokeColor);
+            mPaint.setStrokeWidth(strokeWidth); // Restaurer la largeur normale
+        }
     }
 
     public Bitmap getBitmap() {
