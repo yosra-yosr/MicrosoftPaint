@@ -2,185 +2,186 @@
 <resources>
     <string name="app_name">MicrosoftPaint</string>
 
-<string name="choose_language">Choisir une langue</string>
-<string name="language_flag">Français</string>
-<!-- Informations de base -->
-<string name="search">Rechercher un lieu</string>
-<string name="Myposition">Je suis ici</string>
-<string name="Gouvernorat">Gouvernorat</string>
-<string name="resultat">Aucun résultat trouvé</string>
-<string name="change_language">Changer de langue</string>
-<string name="location_not_available">Localisation non disponible</string>
-<string name="stations_displayed">%d stations affichées sur la carte.</string>
-<string name="no_stations_loaded">Aucune station chargée !</string>
+    <string name="choose_language">Choisir une langue</string>
+    <string name="language_flag">Français</string>
+    <!-- Informations de base -->
+    <string name="search">Rechercher un lieu</string>
+    <string name="Myposition">Je suis ici</string>
+    <string name="Gouvernorat">Gouvernorat</string>
+    <string name="resultat">Aucun résultat trouvé</string>
+    <string name="change_language">Changer de langue</string>
+    <string name="location_not_available">Localisation non disponible</string>
+    <string name="stations_displayed">%d stations affichées sur la carte.</string>
+    <string name="no_stations_loaded">Aucune station chargée !</string>
 
-<!-- Notifications -->
-<string name="notifications">Notifications</string>
-<string name="station_update_title">Mise à jour des stations</string>
-<string name="notification_permission_needed">La permission de notification est nécessaire pour vous informer des changements de stations</string>
-<string name="notification_history">Historique des notifications</string>
-<string name="notification_history_title">Historique des notifications</string>
-<string name="no_notifications_yet">Aucune notification pour le moment</string>
-<string name="swipe_to_refresh">Glissez vers le bas pour actualiser</string>
-<string name="refresh">Actualiser</string>
+    <!-- Notifications -->
+    <string name="notifications">Notifications</string>
+    <string name="station_update_title">Mise à jour des stations</string>
+    <string name="notification_permission_needed">La permission de notification est nécessaire pour vous informer des changements de stations</string>
+    <string name="notification_history">Historique des notifications</string>
+    <string name="notification_history_title">Historique des notifications</string>
+    <string name="no_notifications_yet">Aucune notification pour le moment</string>
+    <string name="swipe_to_refresh">Glissez vers le bas pour actualiser</string>
+    <string name="refresh">Actualiser</string>
 
-<plurals name="stations_added">
-    <item quantity="one">%d nouvelle station ajoutée</item>
-    <item quantity="other">%d nouvelles stations ajoutées</item>
-</plurals>
-<plurals name="stations_removed">
-    <item quantity="one">%d station supprimée</item>
-    <item quantity="other">%d stations supprimées</item>
-</plurals>
+    <plurals name="stations_added">
+        <item quantity="one">%d nouvelle station ajoutée</item>
+        <item quantity="other">%d nouvelles stations ajoutées</item>
+    </plurals>
+    <plurals name="stations_removed">
+        <item quantity="one">%d station supprimée</item>
+        <item quantity="other">%d stations supprimées</item>
+    </plurals>
 
-<!-- Services postaux -->
-<string name="post_office_services">Services Postaux</string>
-<string name="check_back_later_for_updates">Consultez ultérieurement pour les mises à jour sur vos services postaux.</string>
-<string name="new_service_request">Nouvelle demande</string>
-<string name="app_logo_description">Logo du service postal</string>
+    <!-- Services postaux -->
+    <string name="post_office_services">Services Postaux</string>
+    <string name="check_back_later_for_updates">Consultez ultérieurement pour les mises à jour sur vos services postaux.</string>
+    <string name="new_service_request">Nouvelle demande</string>
+    <string name="app_logo_description">Logo du service postal</string>
 
-<!-- Navigation -->
-<string name="menu_home">Accueil</string>
-<string name="menu_services">Services</string>
-<string name="menu_tracking">Suivi</string>
-<string name="menu_account">Compte</string>
-<string name="menu_search">Recherche</string>
-<string name="menu_cart">Panier</string>
-<string name="menu_favorites">Favoris</string>
+    <!-- Navigation -->
+    <string name="menu_home">Accueil</string>
+    <string name="menu_services">Services</string>
+    <string name="menu_tracking">Suivi</string>
+    <string name="menu_account">Compte</string>
+    <string name="menu_search">Recherche</string>
+    <string name="menu_cart">Panier</string>
+    <string name="menu_favorites">Favoris</string>
 
-<!-- Onglets -->
-<string name="tab_all">Tous</string>
-<string name="tab_mail">Courrier</string>
-<string name="tab_packages">Colis</string>
-<string name="tab_services">Services</string>
+    <!-- Onglets -->
+    <string name="tab_all">Tous</string>
+    <string name="tab_mail">Courrier</string>
+    <string name="tab_packages">Colis</string>
+    <string name="tab_services">Services</string>
 
-<!-- Profil utilisateur -->
-<string name="profile_image">Image de profil</string>
-<string name="user_name_placeholder">Nom de l\'utilisateur</string>
-<string name="email_placeholder">utilisateur@exemple.com</string>
+    <!-- Profil utilisateur -->
+    <string name="profile_image">Image de profil</string>
+    <string name="user_name_placeholder">Nom de l\'utilisateur</string>
+    <string name="email_placeholder">utilisateur@exemple.com</string>
 
-<!-- Options du compte -->
-<string name="edit_profile">Modifier le profil</string>
-<string name="change_password">Changer le mot de passe</string>
-<string name="my_orders">Mes commandes</string>
-<string name="my_addresses">Mes adresses</string>
-<string name="logout">Déconnexion</string>
+    <!-- Options du compte -->
+    <string name="edit_profile">Modifier le profil</string>
+    <string name="change_password">Changer le mot de passe</string>
+    <string name="my_orders">Mes commandes</string>
+    <string name="my_addresses">Mes adresses</string>
+    <string name="logout">Déconnexion</string>
 
-<!-- Messages -->
-<string name="profile_updated">Profil mis à jour avec succès</string>
-<string name="password_changed">Mot de passe modifié avec succès</string>
-<string name="logout_confirmation">Êtes-vous sûr de vouloir vous déconnecter?</string>
-<string name="yes">Oui</string>
-<string name="no">Non</string>
-<string name="cancel">Annuler</string>
+    <!-- Messages -->
+    <string name="profile_updated">Profil mis à jour avec succès</string>
+    <string name="password_changed">Mot de passe modifié avec succès</string>
+    <string name="logout_confirmation">Êtes-vous sûr de vouloir vous déconnecter?</string>
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
+    <string name="cancel">Annuler</string>
 
-<!-- Location Details -->
-<string name="directions">Itinéraire</string>
-<string name="share">Partager</string>
-<string name="tourism">Tourisme</string>
-<string name="history">Histoire</string>
-<string name="weather_title">Météo</string>
-<string name="weather_description">Consultez les prévisions météo pour cette région</string>
-<string name="nearby_points_of_interest">Points d\'intérêt</string>
-<string name="poi_description">Découvrez les attractions et services à proximité</string>
-<string name="share_location_subject">Découvrez cet endroit :</string>
-<string name="share_via">Partager via</string>
-<string name="add_to_favorites">Ajouter aux favoris</string>
-<string name="added_to_favorites">Ajouté aux favoris</string>
-<string name="removed_from_favorites">Retiré des favoris</string>
-<string name="weather_info_loading">Chargement des informations météo...</string>
-
-
-<!-- res/values-fr/strings.xml -->
-
-<!-- Éléments généraux -->
-
-<string name="post_office_logo">Logo de la poste</string>
-<string name="fullscreen">Plein écran</string>
-<string name="close">Fermer</string>
-
-<!-- Statut du bureau -->
-<string name="currently_open">Actuellement ouvert</string>
-<string name="currently_closed">Actuellement fermé</string>
-<string name="until_time">jusqu\'à %1$s</string>
-<string name="opens_at">Ouvre à %1$s</string>
-
-<!-- Informations de localisation -->
-<string name="governorate">Gouvernorat</string>
-<string name="governorate_icon">Icône gouvernorat</string>
-<string name="zone">Zone</string>
-<string name="zone_icon">Icône zone</string>
-
-<!-- Distance et temps -->
-<string name="distance_information">Informations de distance</string>
-<string name="walking_icon">À pied</string>
-<string name="driving_icon">En voiture</string>
-<string name="walking_distance">%1$s à pied (%2$s)</string>
-<string name="driving_distance">%1$s en voiture (%2$s)</string>
-
-<!-- Sections détaillées -->
-<string name="opening_hours">Horaires d\'ouverture</string>
-<string name="available_services">Services disponibles</string>
-<string name="rating">Évaluation</string>
-<string name="based_on_reviews">(Basé sur %1$d avis)</string>
-<string name="address">Adresse</string>
-<string name="contact">Contact</string>
-
-<!-- Jours de la semaine -->
-<string name="monday">Lun</string>
-<string name="tuesday">Mar</string>
-<string name="wednesday">Mer</string>
-<string name="thursday">Jeu</string>
-<string name="friday">Ven</string>
-<string name="saturday">Sam</string>
-<string name="sunday">Dim</string>
-
-<!-- Boutons d'action -->
-<string name="more_info">Plus d\'infos</string>
-<string name="show_less">Voir moins</string>
-
-<string name="service_mail">Mail</string>
-<string name="service_packages">Packages</string>
-<string name="service_banking">Banking</string>
-<string name="service_express">Express</string>
-<string name="service_insurance">Insurance</string>
-
-<!-- Time-related -->
-<string name="closed_all_day">Closed all day</string>
-<string name="open_24h">Open 24h</string>
-<string name="hour_format">%1$d:%2$02d</string>
-
-<string name="post_office">Bureau de poste</string>
-<string name="post_office_info">Bureaux de poste</string>
-<string name="loading_post_office_data">Chargement des informations...</string>
-
-<string name="view_favorites_list">Voir la liste des favoris</string>
-<string name="favorites">Mes favoris</string>
-<string name="no_favorites">Vous n\'avez pas encore de favoris</string>
-<string name="remove_favorite">Supprimer des favoris</string>
-<string name="remove_favorite_confirmation">Êtes-vous sûr de vouloir supprimer %1$s de vos favoris ?</string>
-<string name="favorite_removed">Favori supprimé</string>
+    <!-- Location Details -->
+    <string name="directions">Itinéraire</string>
+    <string name="share">Partager</string>
+    <string name="tourism">Tourisme</string>
+    <string name="history">Histoire</string>
+    <string name="weather_title">Météo</string>
+    <string name="weather_description">Consultez les prévisions météo pour cette région</string>
+    <string name="nearby_points_of_interest">Points d\'intérêt</string>
+    <string name="poi_description">Découvrez les attractions et services à proximité</string>
+    <string name="share_location_subject">Découvrez cet endroit :</string>
+    <string name="share_via">Partager via</string>
+    <string name="add_to_favorites">Ajouter aux favoris</string>
+    <string name="added_to_favorites">Ajouté aux favoris</string>
+    <string name="removed_from_favorites">Retiré des favoris</string>
+    <string name="weather_info_loading">Chargement des informations météo...</string>
 
 
+    <!-- res/values-fr/strings.xml -->
 
-<string name="create_account">Créer un Compte</string>
-<string name="welcome_back">Bienvenue</string>
-<string name="full_name">Nom Complet</string>
-<string name="email">Email</string>
-<string name="password">Mot de passe</string>
-<string name="confirm_password">Confirmer le mot de passe</string>
-<string name="register">S\'inscrire</string>
-<string name="login">Se connecter</string>
-<string name="forgot_password">Mot de passe oublié?</string>
-<string name="already_have_account">Vous avez déjà un compte?</string>
-<string name="dont_have_account">Vous n\'avez pas de compte?</string>
-<string name="error_field_required">Ce champ est obligatoire</string>
-<string name="error_invalid_email">Adresse email invalide</string>
-<string name="error_password_short">Le mot de passe doit contenir au moins 6 caractères</string>
-<string name="error_passwords_not_match">Les mots de passe ne correspondent pas</string>
-<string name="registration_successful">Inscription réussie</string>
-<string name="login_successful">Connexion réussie</string>
-<string name="error_login">Échec de connexion. Veuillez vérifier vos identifiants.</string>
-<string name="error_registration">Échec d\'inscription. Veuillez réessayer.</string>
-<string name="error_network">Erreur réseau. Veuillez vérifier votre connexion.</string>
+    <!-- Éléments généraux -->
+
+    <string name="post_office_logo">Logo de la poste</string>
+    <string name="fullscreen">Plein écran</string>
+    <string name="close">Fermer</string>
+
+    <!-- Statut du bureau -->
+    <string name="currently_open">Actuellement ouvert</string>
+    <string name="currently_closed">Actuellement fermé</string>
+    <string name="until_time">jusqu\'à %1$s</string>
+    <string name="opens_at">Ouvre à %1$s</string>
+
+    <!-- Informations de localisation -->
+    <string name="governorate">Gouvernorat</string>
+    <string name="governorate_icon">Icône gouvernorat</string>
+    <string name="zone">Zone</string>
+    <string name="zone_icon">Icône zone</string>
+
+    <!-- Distance et temps -->
+    <string name="distance_information">Informations de distance</string>
+    <string name="walking_icon">À pied</string>
+    <string name="driving_icon">En voiture</string>
+    <string name="walking_distance">%1$s à pied (%2$s)</string>
+    <string name="driving_distance">%1$s en voiture (%2$s)</string>
+
+    <!-- Sections détaillées -->
+    <string name="opening_hours">Horaires d\'ouverture</string>
+    <string name="available_services">Services disponibles</string>
+    <string name="rating">Évaluation</string>
+    <string name="based_on_reviews">(Basé sur %1$d avis)</string>
+    <string name="address">Adresse</string>
+    <string name="contact">Contact</string>
+
+    <!-- Jours de la semaine -->
+    <string name="monday">Lun</string>
+    <string name="tuesday">Mar</string>
+    <string name="wednesday">Mer</string>
+    <string name="thursday">Jeu</string>
+    <string name="friday">Ven</string>
+    <string name="saturday">Sam</string>
+    <string name="sunday">Dim</string>
+
+    <!-- Boutons d'action -->
+    <string name="more_info">Plus d\'infos</string>
+    <string name="show_less">Voir moins</string>
+
+    <string name="service_mail">Mail</string>
+    <string name="service_packages">Packages</string>
+    <string name="service_banking">Banking</string>
+    <string name="service_express">Express</string>
+    <string name="service_insurance">Insurance</string>
+
+    <!-- Time-related -->
+    <string name="closed_all_day">Closed all day</string>
+    <string name="open_24h">Open 24h</string>
+    <string name="hour_format">%1$d:%2$02d</string>
+
+    <string name="post_office">Bureau de poste</string>
+    <string name="post_office_info">Bureaux de poste</string>
+    <string name="loading_post_office_data">Chargement des informations...</string>
+
+    <string name="view_favorites_list">Voir la liste des favoris</string>
+    <string name="favorites">Mes favoris</string>
+    <string name="no_favorites">Vous n\'avez pas encore de favoris</string>
+    <string name="remove_favorite">Supprimer des favoris</string>
+    <string name="remove_favorite_confirmation">Êtes-vous sûr de vouloir supprimer %1$s de vos favoris ?</string>
+    <string name="favorite_removed">Favori supprimé</string>
+
+
+    <string name="create_account">Créer un Compte</string>
+    <string name="welcome_back">Bienvenue</string>
+    <string name="full_name">Nom Complet</string>
+    <string name="email">Email</string>
+    <string name="password">Mot de passe</string>
+    <string name="confirm_password">Confirmer le mot de passe</string>
+    <string name="register">S\'inscrire</string>
+    <string name="login">Se connecter</string>
+    <string name="forgot_password">Mot de passe oublié?</string>
+    <string name="already_have_account">Vous avez déjà un compte?</string>
+    <string name="dont_have_account">Vous n\'avez pas de compte?</string>
+    <string name="error_field_required">Ce champ est obligatoire</string>
+    <string name="error_invalid_email">Adresse email invalide</string>
+    <string name="error_password_short">Le mot de passe doit contenir au moins 6 caractères</string>
+    <string name="error_passwords_not_match">Les mots de passe ne correspondent pas</string>
+    <string name="registration_successful">Inscription réussie</string>
+    <string name="login_successful">Connexion réussie</string>
+    <string name="error_login">Échec de connexion. Veuillez vérifier vos identifiants.</string>
+    <string name="error_registration">Échec d\'inscription. Veuillez réessayer.</string>
+    <string name="error_network">Erreur réseau. Veuillez vérifier votre connexion.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
