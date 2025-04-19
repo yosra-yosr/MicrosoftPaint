@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MicrosoftPaint</string>
+
+<string name="choose_language">Choose a language</string>
+<string name="language_flag">Anglais</string>
+<!-- Basic information -->
+<string name="search">Search location</string>
+<string name="Myposition">I\'m here</string>
+<string name="Gouvernorat">Governorate</string>
+<string name="resultat">No results found</string>
+<string name="change_language">Change language</string>
+<string name="location_not_available">Location not available</string>
+<string name="stations_displayed">%d stations displayed on the map.</string>
+<string name="no_stations_loaded">No station loaded!</string>
+
+<!-- Notifications -->
+<string name="notifications">Notifications</string>
+<string name="station_update_title">Station updates</string>
+<string name="notification_permission_needed">Notification permission is needed to inform you about station changes</string>
+<string name="notification_history">Notification history</string>
+<string name="notification_history_title">Notification history</string>
+<string name="no_notifications_yet">No notifications yet</string>
+<string name="swipe_to_refresh">Swipe down to refresh</string>
+<string name="refresh">Refresh</string>
+
+<plurals name="stations_added">
+    <item quantity="one">%d new station added</item>
+    <item quantity="other">%d new stations added</item>
+</plurals>
+<plurals name="stations_removed">
+    <item quantity="one">%d station removed</item>
+    <item quantity="other">%d stations removed</item>
+</plurals>
+
+<!-- Postal services -->
+<string name="post_office_services">Postal Services</string>
+<string name="check_back_later_for_updates">Check back later for updates on your postal services.</string>
+<string name="new_service_request">New request</string>
+<string name="app_logo_description">Postal service logo</string>
+
+<!-- Navigation -->
+<string name="menu_home">Home</string>
+<string name="menu_services">Services</string>
+<string name="menu_tracking">Tracking</string>
+<string name="menu_account">Account</string>
+<string name="menu_search">Search</string>
+<string name="menu_cart">Cart</string>
+<string name="menu_favorites">Favorites</string>
+
+<!-- Tabs -->
+<string name="tab_all">All</string>
+<string name="tab_mail">Mail</string>
+<string name="tab_packages">Packages</string>
+<string name="tab_services">Services</string>
+
+<!-- User profile -->
+<string name="profile_image">Profile picture</string>
+<string name="user_name_placeholder">User name</string>
+<string name="email_placeholder">user@example.com</string>
+
+<!-- Account options -->
+<string name="edit_profile">Edit profile</string>
+<string name="change_password">Change password</string>
+<string name="my_orders">My orders</string>
+<string name="my_addresses">My addresses</string>
+<string name="logout">Log out</string>
+
+<!-- Messages -->
+<string name="profile_updated">Profile successfully updated</string>
+<string name="password_changed">Password successfully changed</string>
+<string name="logout_confirmation">Are you sure you want to log out?</string>
+<string name="yes">Yes</string>
+<string name="no">No</string>
+<string name="cancel">Cancel</string>
+
+<!-- Location Details -->
+<string name="directions">Directions</string>
+<string name="share">Share</string>
+<string name="tourism">Tourism</string>
+<string name="history">History</string>
+<string name="weather_title">Weather</string>
+<string name="weather_description">Check weather forecasts for this area</string>
+<string name="nearby_points_of_interest">Points of interest</string>
+<string name="poi_description">Discover nearby attractions and services</string>
+<string name="share_location_subject">Discover this place:</string>
+<string name="share_via">Share via</string>
+<string name="add_to_favorites">Add to favorites</string>
+<string name="added_to_favorites">Added to favorites</string>
+<string name="removed_from_favorites">Removed from favorites</string>
+<string name="weather_info_loading">Loading weather information...</string>
+
+
+
+<!-- General elements -->
+<string name="post_office_logo">Post office logo</string>
+<string name="fullscreen">Fullscreen</string>
+<string name="close">Close</string>
+
+<!-- Office status -->
+<string name="currently_open">Currently open</string>
+<string name="currently_closed">Currently closed</string>
+<string name="until_time">until %1$s</string>
+<string name="opens_at">Opens at %1$s</string>
+
+<!-- Location information -->
+<string name="governorate">Governorate</string>
+<string name="governorate_icon">Governorate icon</string>
+<string name="zone">Zone</string>
+<string name="zone_icon">Zone icon</string>
+
+<!-- Distance and time -->
+<string name="distance_information">Distance Information</string>
+<string name="walking_icon">Walking</string>
+<string name="driving_icon">Driving</string>
+<string name="walking_distance">%1$s walking (%2$s)</string>
+<string name="driving_distance">%1$s driving (%2$s)</string>
+
+<!-- Detailed sections -->
+<string name="opening_hours">Opening Hours</string>
+<string name="available_services">Available Services</string>
+<string name="rating">Rating</string>
+<string name="based_on_reviews">(Based on %1$d reviews)</string>
+<string name="address">Address</string>
+<string name="contact">Contact</string>
+
+<!-- Days of the week -->
+<!-- res/values/strings.xml (default - English) continued -->
+<!-- Days of the week -->
+<string name="monday">Mon</string>
+<string name="tuesday">Tue</string>
+<string name="wednesday">Wed</string>
+<string name="thursday">Thu</string>
+<string name="friday">Fri</string>
+<string name="saturday">Sat</string>
+<string name="sunday">Sun</string>
+
+<!-- Action buttons -->
+<string name="more_info">More Info</string>
+<string name="show_less">Show Less</string>
+
+<!-- Service types -->
+<string name="service_mail">Mail</string>
+<string name="service_packages">Packages</string>
+<string name="service_banking">Banking</string>
+<string name="service_express">Express</string>
+<string name="service_insurance">Insurance</string>
+
+<!-- Time-related -->
+<string name="closed_all_day">Closed all day</string>
+<string name="open_24h">Open 24h</string>
+<string name="hour_format">%1$d:%2$02d</string>
+
+<string name="post_office">Bureau de poste</string>
+<string name="post_office_info">Bureaux de poste</string>
+<string name="loading_post_office_data">Chargement des informations...</string>
+
+<string name="view_favorites_list">Voir la liste des favoris</string>
+<string name="favorites">Favoris</string>
+<string name="no_favorites">Vous n\'avez pas encore de favoris</string>
+<string name="remove_favorite">Supprimer des favoris</string>
+<string name="remove_favorite_confirmation">Êtes-vous sûr de vouloir supprimer %1$s de vos favoris ?</string>
+<string name="favorite_removed">Favori supprimé</string>
+
+
+
+<string name="create_account">Create Account</string>
+<string name="welcome_back">Welcome Back</string>
+<string name="full_name">Full Name</string>
+<string name="email">Email</string>
+<string name="password">Password</string>
+<string name="confirm_password">Confirm Password</string>
+<string name="register">Register</string>
+<string name="login">Login</string>
+<string name="forgot_password">Forgot Password?</string>
+<string name="already_have_account">Already have an account?</string>
+<string name="dont_have_account">Don\'t have an account?</string>
+<string name="error_field_required">This field is required</string>
+<string name="error_invalid_email">Invalid email address</string>
+<string name="error_password_short">Password should be at least 6 characters</string>
+<string name="error_passwords_not_match">Passwords do not match</string>
+<string name="registration_successful">Registration successful</string>
+<string name="login_successful">Login successful</string>
+<string name="error_login">Login failed. Please check your credentials.</string>
+<string name="error_registration">Registration failed. Please try again.</string>
+<string name="error_network">Network error. Please check your connection.</string>
+
+</resources>

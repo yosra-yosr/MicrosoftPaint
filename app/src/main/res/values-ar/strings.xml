@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MicrosoftPaint</string>
+
+<string name="choose_language">اختر لغة</string>
+<string name="language_flag">Français</string>
+<!-- Informations de base -->
+<string name="search">ابحث هنا</string>
+<string name="Myposition">أنا هنا</string>
+<string name="Gouvernorat">الولاية</string>
+<string name="resultat">لا يوجد مكتب بريد</string>
+<string name="change_language">تغيير اللغة</string>
+<string name="location_not_available">الموقع غير متاح</string>
+<string name="stations_displayed">%d محطات معروضة على الخريطة.</string>
+<string name="no_stations_loaded">لم يتم تحميل أي محطة!</string>
+
+<!-- Notifications -->
+<string name="notifications">إشعارات</string>
+<string name="station_update_title">تحديث المحطات</string>
+<string name="notification_permission_needed">إذن الإشعارات مطلوب لإعلامك بتغييرات المحطات</string>
+<string name="notification_history">سجل الإشعارات</string>
+<string name="notification_history_title">سجل الإشعارات</string>
+<string name="no_notifications_yet">لا توجد إشعارات حتى الآن</string>
+<string name="swipe_to_refresh">اسحب لأسفل للتحديث</string>
+<string name="refresh">تحديث</string>
+
+<plurals name="stations_added">
+    <item quantity="zero">لم تتم إضافة محطات</item>
+    <item quantity="one">تمت إضافة محطة واحدة</item>
+    <item quantity="two">تمت إضافة محطتين</item>
+    <item quantity="few">تمت إضافة %d محطات</item>
+    <item quantity="many">تمت إضافة %d محطة</item>
+    <item quantity="other">تمت إضافة %d محطة</item>
+</plurals>
+<plurals name="stations_removed">
+    <item quantity="zero">لم تتم إزالة محطات</item>
+    <item quantity="one">تمت إزالة محطة واحدة</item>
+    <item quantity="two">تمت إزالة محطتين</item>
+    <item quantity="few">تمت إزالة %d محطات</item>
+    <item quantity="many">تمت إزالة %d محطة</item>
+    <item quantity="other">تمت إزالة %d محطة</item>
+</plurals>
+
+<!-- Services postaux -->
+<string name="post_office_services">خدمات البريد</string>
+<string name="check_back_later_for_updates">تحقق لاحقًا للحصول على التحديثات بشأن خدمات البريد الخاصة بك.</string>
+<string name="new_service_request">طلب جديد</string>
+<string name="app_logo_description">شعار خدمة البريد</string>
+
+<!-- Navigation -->
+<string name="menu_home">الرئيسية</string>
+<string name="menu_services">الخدمات</string>
+<string name="menu_tracking">تتبع</string>
+<string name="menu_account">الحساب</string>
+<string name="menu_search">بحث</string>
+<string name="menu_cart">عربة التسوق</string>
+<string name="menu_favorites">المفضلة</string>
+
+<!-- Onglets -->
+<string name="tab_all">الكل</string>
+<string name="tab_mail">بريد</string>
+<string name="tab_packages">طرود</string>
+<string name="tab_services">خدمات</string>
+
+<!-- Profil utilisateur -->
+<string name="profile_image">صورة الملف الشخصي</string>
+<string name="user_name_placeholder">اسم المستخدم</string>
+<string name="email_placeholder">user@example.com</string>
+
+<!-- Options du compte -->
+<string name="edit_profile">تعديل الملف الشخصي</string>
+<string name="change_password">تغيير كلمة المرور</string>
+<string name="my_orders">طلباتي</string>
+<string name="my_addresses">عناويني</string>
+<string name="logout">تسجيل الخروج</string>
+
+<!-- Messages -->
+<string name="profile_updated">تم تحديث الملف الشخصي بنجاح</string>
+<string name="password_changed">تم تغيير كلمة المرور بنجاح</string>
+<string name="logout_confirmation">هل أنت متأكد أنك تريد تسجيل الخروج؟</string>
+<string name="yes">نعم</string>
+<string name="no">لا</string>
+<string name="cancel">إلغاء</string>
+
+<!-- Location Details -->
+<string name="directions">مسار</string>
+<string name="share">مشاركة</string>
+<string name="tourism">سياحة</string>
+<string name="history">تاريخ</string>
+<string name="weather_title">الطقس</string>
+<string name="weather_description">اطلع على توقعات الطقس لهذه المنطقة</string>
+<string name="nearby_points_of_interest">نقاط الاهتمام</string>
+<string name="poi_description">اكتشف المعالم والخدمات القريبة</string>
+<string name="share_location_subject">اكتشف هذا المكان:</string>
+<string name="share_via">شارك عبر</string>
+<string name="add_to_favorites">إضافة إلى المفضلة</string>
+<string name="added_to_favorites">تمت الإضافة إلى المفضلة</string>
+<string name="removed_from_favorites">تمت الإزالة من المفضلة</string>
+<string name="weather_info_loading">جاري تحميل معلومات الطقس...</string>
+
+
+
+<string name="post_office_logo">شعار البريد</string>
+<string name="fullscreen">ملء الشاشة</string>
+<string name="close">إغلاق</string>
+
+<!-- Statut du bureau -->
+<string name="currently_open">مفتوح الآن</string>
+<string name="currently_closed">مغلق الآن</string>
+<string name="until_time">حتى %1$s</string>
+<string name="opens_at">يفتح في %1$s</string>
+
+<!-- Informations de localisation -->
+<string name="governorate">الولاية</string>
+<string name="governorate_icon">أيقونة المحافظة</string>
+<string name="zone">المنطقة</string>
+<string name="zone_icon">أيقونة المنطقة</string>
+
+<!-- Distance et temps -->
+<string name="distance_information">معلومات المسافة</string>
+<string name="walking_icon">مشياً</string>
+<string name="driving_icon">بالسيارة</string>
+<string name="walking_distance">%1$s مشيا على الأقدام (%2$s)</string>
+<string name="driving_distance">%1$s بالسيارة (%2$s)</string>
+
+<!-- Sections détaillées -->
+<string name="opening_hours">ساعات العمل</string>
+<string name="available_services">الخدمات المتوفرة</string>
+<string name="rating">التقييم</string>
+<string name="based_on_reviews">(بناءً على %1$d تقييم)</string>
+<string name="address">العنوان</string>
+<string name="contact">الاتصال</string>
+
+<!-- Jours de la semaine -->
+<string name="monday">الإثنين</string>
+<string name="tuesday">الثلاثاء</string>
+<string name="wednesday">الأربعاء</string>
+<string name="thursday">الخميس</string>
+<string name="friday">الجمعة</string>
+<string name="saturday">السبت</string>
+<string name="sunday">الأحد</string>
+
+<!-- Boutons d'action -->
+<string name="more_info">مزيد من المعلومات</string>
+<string name="show_less">عرض أقل</string>
+
+
+<string name="service_mail">Mail</string>
+<string name="service_packages">Packages</string>
+<string name="service_banking">Banking</string>
+<string name="service_express">Express</string>
+<string name="service_insurance">Insurance</string>
+
+<!-- Time-related -->
+<string name="closed_all_day">Closed all day</string>
+<string name="open_24h">Open 24h</string>
+<string name="hour_format">%1$d:%2$02d</string>
+
+<string name="post_office">Bureau de poste</string>
+<string name="post_office_info">Bureaux de poste</string>
+<string name="loading_post_office_data">Chargement des informations...</string>
+
+<string name="view_favorites_list">Voir la liste des favoris</string>
+<string name="favorites">Favoris</string>
+<string name="no_favorites">Vous n\'avez pas encore de favoris</string>
+<string name="remove_favorite">Supprimer des favoris</string>
+<string name="remove_favorite_confirmation">Êtes-vous sûr de vouloir supprimer %1$s de vos favoris ?</string>
+<string name="favorite_removed">Favori supprimé</string>
+
+
+<string name="create_account">إنشاء حساب</string>
+<string name="welcome_back">مرحبًا بعودتك</string>
+<string name="full_name">الاسم الكامل</string>
+<string name="email">البريد الإلكتروني</string>
+<string name="password">كلمة المرور</string>
+<string name="confirm_password">تأكيد كلمة المرور</string>
+<string name="register">تسجيل</string>
+<string name="login">تسجيل الدخول</string>
+<string name="forgot_password">نسيت كلمة المرور؟</string>
+<string name="already_have_account">هل لديك حساب بالفعل؟</string>
+<string name="dont_have_account">ليس لديك حساب؟</string>
+<string name="error_field_required">هذا الحقل مطلوب</string>
+<string name="error_invalid_email">عنوان البريد الإلكتروني غير صالح</string>
+<string name="error_password_short">يجب أن تتكون كلمة المرور من 6 أحرف على الأقل</string>
+<string name="error_passwords_not_match">كلمات المرور غير متطابقة</string>
+<string name="registration_successful">تم التسجيل بنجاح</string>
+<string name="login_successful">تم تسجيل الدخول بنجاح</string>
+<string name="error_login">فشل تسجيل الدخول. يرجى التحقق من بيانات الاعتماد الخاصة بك.</string>
+<string name="error_registration">فشل التسجيل. حاول مرة اخرى.</string>
+<string name="error_network">خطأ في الشبكة. يرجى التحقق من اتصالك.</string>
+</resources>

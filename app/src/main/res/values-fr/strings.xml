@@ -91,9 +91,8 @@
 <string name="weather_info_loading">Chargement des informations météo...</string>
 
 
-<!-- res/values-fr/strings.xml -->
 
-<!-- Éléments généraux -->
+<!-- res/values-fr/strings.xml -->
 
 <string name="post_office_logo">Logo de la poste</string>
 <string name="fullscreen">Plein écran</string>
@@ -150,12 +149,14 @@
 <string name="open_24h">Open 24h</string>
 <string name="hour_format">%1$d:%2$02d</string>
 
+
 <string name="post_office">Bureau de poste</string>
 <string name="post_office_info">Bureaux de poste</string>
 <string name="loading_post_office_data">Chargement des informations...</string>
 
+
 <string name="view_favorites_list">Voir la liste des favoris</string>
-<string name="favorites">Mes favoris</string>
+<string name="favorites">Favoris</string>
 <string name="no_favorites">Vous n\'avez pas encore de favoris</string>
 <string name="remove_favorite">Supprimer des favoris</string>
 <string name="remove_favorite_confirmation">Êtes-vous sûr de vouloir supprimer %1$s de vos favoris ?</string>
@@ -183,4 +184,5 @@
 <string name="error_login">Échec de connexion. Veuillez vérifier vos identifiants.</string>
 <string name="error_registration">Échec d\'inscription. Veuillez réessayer.</string>
 <string name="error_network">Erreur réseau. Veuillez vérifier votre connexion.</string>
+
 </resources>

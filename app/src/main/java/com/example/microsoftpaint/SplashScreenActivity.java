@@ -38,7 +38,7 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         // Passer à l'activité principale après la durée spécifiée
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
-            Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
+            Intent intent = new Intent(SplashScreenActivity.this, LanguageSelectionActivity.class);
             startActivity(intent);
             finish();
         }, SPLASH_DURATION);
