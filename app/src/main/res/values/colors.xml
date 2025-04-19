@@ -12,4 +12,5 @@
     <color name="blue_primary_light">#3377BB</color>
     <color name="accent_yellow">#FFD700</color>
     <color name="accent_red">#E53935</color>
+    <color name="splash_background">#FFFFFF</color> <!-- ou la couleur de votre choix -->
 </resources>
